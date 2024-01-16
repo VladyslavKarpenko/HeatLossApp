@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.screen.house_details.HouseDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomSheet"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back_button"
+            android:elevation="4dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp"
+            android:src="@drawable/ic_arrow_back_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/avatarHouseImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/nameOfHouseMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatarHouseImageView" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/internalTemperatureMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/internal_temperature"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/internalTemperatureValueMaterialTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameOfHouseMaterialTextView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/internalTemperatureValueMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/_0"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/internalTemperatureMaterialTextView"
+            app:layout_constraintTop_toBottomOf="@id/nameOfHouseMaterialTextView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/internalValueFromMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_25"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/internalTemperatureSlider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/internalTemperatureSlider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/internalValueToMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_plus25"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/internalTemperatureSlider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameOfHouseMaterialTextView"
+            app:layout_constraintTop_toTopOf="@id/internalTemperatureSlider" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/internalTemperatureSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:stepSize="1.0"
+            android:value="0.0"
+            android:valueFrom="-50.0"
+            android:valueTo="+50.0"
+            app:layout_constraintEnd_toStartOf="@id/internalValueToMaterialTextView"
+            app:layout_constraintStart_toEndOf="@id/internalValueFromMaterialTextView"
+            app:layout_constraintTop_toBottomOf="@id/internalTemperatureMaterialTextView"
+            app:tickVisible="false"
+            app:trackColorInactive="?attr/colorPrimary" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ambientTemperatureMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/ambient_temperature"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/ambientTemperatureValueMaterialTextView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/internalTemperatureSlider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ambientTemperatureValueMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/_0"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ambientTemperatureMaterialTextView"
+            app:layout_constraintTop_toBottomOf="@id/internalTemperatureSlider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ambientValueFromMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_25"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ambientTemperatureSlider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ambientTemperatureSlider" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/ambientValueToMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_plus25"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ambientTemperatureSlider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameOfHouseMaterialTextView"
+            app:layout_constraintTop_toTopOf="@id/ambientTemperatureSlider" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/ambientTemperatureSlider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:stepSize="1.0"
+            android:value="0.0"
+            android:valueFrom="-50.0"
+            android:valueTo="+50.0"
+            app:layout_constraintEnd_toStartOf="@id/ambientValueToMaterialTextView"
+            app:layout_constraintStart_toEndOf="@id/ambientValueFromMaterialTextView"
+            app:layout_constraintTop_toBottomOf="@id/ambientTemperatureMaterialTextView"
+            app:tickVisible="false"
+            app:trackColorInactive="?attr/colorPrimary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addNewRoomMaterialButton"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="New Room"
+            app:icon="@drawable/ic_add"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ambientTemperatureSlider" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/roomsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addNewRoomMaterialButton"
+            tools:listitem="@layout/item_room" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/emptyScreenMaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="120dp"
+            android:text="@string/add_your_first_room"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addNewRoomMaterialButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/HeatLossBottomSheetDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomSheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/dragHandle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Power of heating system"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/btuMaterialTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/wattsMaterialTextView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/wattsMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Watts:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/wattsValueMaterialTextView"
+                app:layout_constraintTop_toBottomOf="@id/dragHandle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/wattsValueMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dragHandle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btuMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="BTU:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/btuValueMaterialTextView"
+                app:layout_constraintTop_toBottomOf="@id/wattsMaterialTextView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btuValueMaterialTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wattsMaterialTextView" />
+
+            <LinearLayout
+                android:id="@+id/graphicLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginVertical="32dp"
+                android:layout_weight="1"
+                app:layout_constraintTop_toBottomOf="@id/btuMaterialTextView">
+
+                <com.faskn.lib.ClickablePieChart
+                    android:id="@+id/chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:animationDuration="2000"
+                    app:showPercentage="true"
+                    app:showPopup="true" />
+
+                <FrameLayout
+                    android:id="@+id/legendLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loadRecommendationsMaterialButton"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Load Recommendations"
+                app:icon="@drawable/ic_download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/graphicLinearLayout" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/loadRecommendationsCircularProgressIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:indeterminate="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loadRecommendationsMaterialButton" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/recommendationsMaterialTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/loadRecommendationsMaterialButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+

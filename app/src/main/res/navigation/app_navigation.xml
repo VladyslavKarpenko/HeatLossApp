@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.chi.heat.loss.app.presentation.screen.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_houseDetailsFragment"
+            app:destination="@id/houseDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addNewHouseMaterialDialog"
+            app:destination="@id/addNewHouseMaterialDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/addNewHouseMaterialDialog"
+        android:name="com.chi.heat.loss.app.presentation.screen.add_new_house.AddNewHouseMaterialDialog"
+        android:label="AddNewHouseMaterialDialog">
+        <action
+            android:id="@+id/action_addNewHouseMaterialDialog_to_houseDetailsFragment"
+            app:destination="@id/houseDetailsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/houseDetailsFragment"
+        android:name="com.chi.heat.loss.app.presentation.screen.house_details.HouseDetailsFragment"
+        android:label="fragment_house_details"
+        tools:layout="@layout/fragment_house_details">
+        <argument
+            android:name="houseId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_houseDetailsFragment_to_addNewRoomFragment"
+            app:destination="@id/addNewRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewRoomFragment"
+        android:name="com.chi.heat.loss.app.presentation.screen.add_new_room.AddNewRoomFragment"
+        android:label="fragment_add_new_room"
+        tools:layout="@layout/fragment_add_new_room" >
+        <argument
+            android:name="roomType"
+            app:argType="com.chi.heat.loss.app.utils.RoomType" />
+        <argument
+            android:name="houseId"
+            app:argType="string" />
+    </fragment>
+</navigation>
